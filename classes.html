@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Classes - SchoolSync Kindergarten</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4a6cf7;
+            --primary-dark: #3a5bd9;
+            --secondary: #ff9f43;
+            --light: #f8f9fa;
+            --dark: #333;
+            --gray: #666;
+            --light-gray: #e9ecef;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 28px;
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background-color: var(--light-gray);
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .breadcrumb a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb span {
+            margin: 0 10px;
+            color: var(--gray);
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Classes Intro */
+        .classes-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            color: var(--gray);
+        }
+
+        /* Classes Grid */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .class-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .class-image {
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .class-image i {
+            font-size: 60px;
+            color: var(--primary);
+        }
+
+        .class-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .class-content {
+            padding: 25px;
+        }
+
+        .class-title {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .class-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+            min-height: 60px;
+        }
+
+        .class-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .class-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--gray);
+        }
+
+        .class-detail i {
+            color: var(--primary);
+        }
+
+        .class-button {
+            display: block;
+            text-align: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .class-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .schedule-table th {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        .time-slot {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .class-name {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Age Groups */
+        .age-groups {
+            margin-bottom: 80px;
+        }
+
+        .age-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .age-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .age-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .age-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 30px;
+        }
+
+        .age-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .age-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .age-list {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .age-list li {
+            margin-bottom: 10px;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .age-list i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #8a63d2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 80px;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .classes-grid, .age-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .classes-grid, .age-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="logo-text">School<span>Sync</span></div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="classes.html" class="active">Classes</a></li>
+                        <li><a href="leadership.html">leadership</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">login</a></li>
+                    </ul>
+                </nav>
+                <a href="enroll-now.html" class="cta-button">Enroll Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="#">HOME</a>
+                <span>/</span>
+                <a href="#">CLASSES</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Classes</h1>
+            <p>Discover our diverse range of educational programs designed to nurture young minds</p>
+        </div>
+    </section>
+
+    <!-- Classes Intro -->
+    <section class="classes-intro">
+        <div class="container">
+            <p>We bring you the essentials of everyday life through engaging, hands-on learning. In this class, children explore topics like health care basics, community roles, and practical tools  all designed to build awareness and curiosity. From understanding doctor visits to discovering useful books and resources, Ciclos helps young minds connect with the world around them.
+
+            We also introduce elements of nature and travel, with fun references to parks, supplies, and places like Bayern  sparking imagination and global thinking.</p>
+        </div>
+    </section>
+
+    <!-- Classes Grid -->
+    <section class="classes-section">
+        <div class="container">
+            <div class="classes-grid">
+                <!-- Art Class -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-palette"></i>
+                        <div class="class-badge">Popular</div>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">Art Class</h3>
+                        <p class="class-description">Freshrooms in Bayern is great parks, supplies, hotels, portfitter. Complete your nails as owner and tempers, coveralls quiz do better.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>A1</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>3-5 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>18 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- English Language -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-language"></i>
+                        <div class="class-badge">New</div>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">English Language</h3>
+                        <p class="class-description">Complete your nails as owner and tempers, coveralls quiz do better. Freshrooms in Bayern is great parks, supplies, hotels, portfitter.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>A2</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>3-15 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>18 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Kids' Guitar -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-guitar"></i>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">Kids' Guitar</h3>
+                        <p class="class-description">Freshrooms in Bayern is one picnic dayplace, while portfitter. Complete your nails as owner and tempers, coveralls quiz do better.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>A3</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>3-15 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>8 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Music Class -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">Music Class</h3>
+                        <p class="class-description">Discover rhythm and melody through fun activities. Children explore different instruments and develop musical appreciation.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>B1</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>4-6 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>12 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Science Exploration -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">Science Exploration</h3>
+                        <p class="class-description">Hands-on experiments and discovery activities that introduce basic scientific concepts in a fun, engaging way.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>B2</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>5-8 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>15 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+
+                <!-- Sports & Movement -->
+                <div class="class-card">
+                    <div class="class-image">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="class-content">
+                        <h3 class="class-title">Sports & Movement</h3>
+                        <p class="class-description">Develop motor skills, coordination and teamwork through age-appropriate physical activities and games.</p>
+                        <div class="class-details">
+                            <div class="class-detail">
+                                <i class="fas fa-user"></i>
+                                <span>B3</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>3-7 y/o</span>
+                            </div>
+                            <div class="class-detail">
+                                <i class="fas fa-users"></i>
+                                <span>20 seats</span>
+                            </div>
+                        </div>
+                        <a href="#" class="class-button">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekly Class Schedule</h2>
+                <p>Our carefully planned schedule ensures balanced learning and development throughout the week</p>
+            </div>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-slot">9:00 - 10:00</td>
+                        <td><span class="class-name">Art Class</span></td>
+                        <td><span class="class-name">English Language</span></td>
+                        <td><span class="class-name">Music Class</span></td>
+                        <td><span class="class-name">Art Class</span></td>
+                        <td><span class="class-name">Science Exploration</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">10:00 - 11:00</td>
+                        <td><span class="class-name">English Language</span></td>
+                        <td><span class="class-name">Kids' Guitar</span></td>
+                        <td><span class="class-name">Sports & Movement</span></td>
+                        <td><span class="class-name">English Language</span></td>
+                        <td><span class="class-name">Art Class</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">11:00 - 12:00</td>
+                        <td><span class="class-name">Science Exploration</span></td>
+                        <td><span class="class-name">Sports & Movement</span></td>
+                        <td><span class="class-name">English Language</span></td>
+                        <td><span class="class-name">Kids' Guitar</span></td>
+                        <td><span class="class-name">Music Class</span></td>
+                    </tr>
+                    <tr>
+                        <td class="time-slot">14:00 - 15:00</td>
+                        <td><span class="class-name">Kids' Guitar</span></td>
+                        <td><span class="class-name">Art Class</span></td>
+                        <td><span class="class-name">Science Exploration</span></td>
+                        <td><span class="class-name">Sports & Movement</span></td>
+                        <td><span class="class-name">Kids' Guitar</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Age Groups -->
+    <section class="age-groups">
+        <div class="container">
+            <div class="section-title">
+                <h2>Age-Appropriate Learning</h2>
+                <p>Our classes are tailored to different age groups to ensure optimal development</p>
+            </div>
+            <div class="age-cards">
+                <div class="age-card">
+                    <div class="age-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Toddlers (2-3 years)</h3>
+                    <p>Focus on sensory development and basic social skills</p>
+                    <ul class="age-list">
+                        <li><i class="fas fa-check"></i> Sensory play activities</li>
+                        <li><i class="fas fa-check"></i> Basic motor skills</li>
+                        <li><i class="fas fa-check"></i> Social interaction</li>
+                        <li><i class="fas fa-check"></i> Language introduction</li>
+                    </ul>
+                    <a href="#" class="class-button">Learn More</a>
+                </div>
+                <div class="age-card">
+                    <div class="age-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Preschool (4-12 years)</h3>
+                    <p>Building foundational skills for kindergarten readiness</p>
+                    <ul class="age-list">
+                        <li><i class="fas fa-check"></i> Early literacy & numeracy</li>
+                        <li><i class="fas fa-check"></i> Creative expression</li>
+                        <li><i class="fas fa-check"></i> Problem-solving skills</li>
+                        <li><i class="fas fa-check"></i> Cooperative play</li>
+                    </ul>
+                    <a href="#" class="class-button">Learn More</a>
+                </div>
+                <div class="age-card">
+                    <div class="age-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>HighSchool (13-15 years)</h3>
+                    <p>Preparing for elementary school with advanced skills</p>
+                    <ul class="age-list">
+                        <li><i class="fas fa-check"></i> Reading & writing readiness</li>
+                        <li><i class="fas fa-check"></i> Basic math concepts</li>
+                        <li><i class="fas fa-check"></i> Scientific exploration</li>
+                        <li><i class="fas fa-check"></i> Critical thinking</li>
+                    </ul>
+                    <a href="#" class="class-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Enroll Your Child?</h2>
+            <p>Join the SchoolSync family and give your child the best start to their educational journey</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Enroll Now</a>
+                <a href="#" class="btn btn-secondary">Schedule a Tour</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SchoolSync</h3>
+                    <p>Welcome to SchoolSync Kindergarten, where we nurture young minds with care, creativity, and education.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Classes</a>
+                    <a href="#">Teachers</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Classes</h3>
+                    <a href="#">Art Class</a>
+                    <a href="#">English Language</a>
+                    <a href="#">Kids' Guitar</a>
+                    <a href="#">Music Class</a>
+                    <a href="#">Science Exploration</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Education Street, Learning City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@superowly.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 SchoolSync Kindergarten. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
